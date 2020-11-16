@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import axios from 'axios';
+import Loader from './component/Loader';
+import MainView from './Views/MainView';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      post:{},
+      err: false,
+      loading: true,
+    }
+  }
+
+  componentDidMount() {
+    axios.get('https://rickandmortyapi.com/api/character/')
+    .then(res => {
+        this.setState({
+            post: res.data,
+            err: false,
+            loading: false,
+        })
+    })
+    .catch(err => {
+        this.setState({
+            err: true,
+            loading: false,
+        })
+    })
+  }
+
+  render(){ 
+    const { post, err, loading } = this.state
+    return(
+      <div>
+        {
+          loading === true 
+          ? <Loader />
+          : <MainView post={post} err={err}/>
+        }
+      </div>
+    )
+  }
 }
 
 export default App;

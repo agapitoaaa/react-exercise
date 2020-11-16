@@ -1,0 +1,98 @@
+.header {
+    background-color: black;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.header-text {
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15%;
+
+}
+
+.box-container {
+    border: 1px black solid;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.card {
+    margin: 20px;
+    height: 250px;
+    width: 250px;
+}
+
+.character-details {
+    background-color: grey;
+    height: 250px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.name-text {
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    size: 50;
+    font-size: 30px;
+}
+
+.status-container {
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+}
+
+.circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.status-Dead {
+    background-color: red;
+}
+
+.status-Alive {
+    background-color: lightgreen;
+}
+
+.status-unknown {
+    background-color: black;
+}
+
+.details-text {
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.error-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.error-text {
+    font-size: 50px;
+    color: red;
+}
