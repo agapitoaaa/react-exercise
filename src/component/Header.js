@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
+import '../styles/header.css'
 
-class Header extends Component {
-  render(){ 
-      const { headerText } = this.props
-    return(
-      <div className="header">
-        <text className="header-text">
-            {headerText}
-        </text>
+const  Header = (props) => {
+  const { headerText } = props
+  return (
+    <div className="header">
+      <div className="header-text">
+        {headerText}
       </div>
-    )
-  }
-
+    </div>
+  )
 }
 
-export default Header;
+Header.propTypes = {
+  headerText: PropTypes.string,
+}
+
+export default Header

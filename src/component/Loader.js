@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
+import '../styles/loader.css'
 
-class Loader extends Component {
-
-  render(){ 
-      const { err } = this.props;
-    return(
-            <div className="loader-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" /> 
-            </div>
-    )
-  }
-
+ const Loader = () => {
+  return (
+    <div className="loader-container" data-testid="loader">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loader-Gif" />
+    </div>
+  )
 }
 
-export default Loader ;
+export default Loader

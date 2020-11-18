@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../styles/card.css'
 
-class Card extends Component {
-    constructor(props) {
-        super(props)
-        this.state={
-            isClicked: false,
-        }
+class Card extends React.Component {
+
+    state = {
+        isClicked: false,
     }
 
     showDetails = () => {
@@ -18,34 +18,49 @@ class Card extends Component {
         const { id, imageSource, details } = this.props;
         const { isClicked } = this.state;
         return (
-            <div key={id} className="box-container card" style={{backgroundImage: `url(${imageSource})`}} onClick={this.showDetails}>
+            <div key={id} className="box-container card" style={{ backgroundImage: `url(${imageSource})` }} onClick={this.showDetails}>
                 {
-                    isClicked 
-                    ? 
-                        <div onClick={this.showDetails} className="character-details"> 
-                            <text className="name-text"> {details.name} </text>
+                    isClicked
+                        ?
+                        <div onClick={this.showDetails} className="character-details">
+                            <div className="name-text"> {details.name} </div>
                             <div className="status-container">
-                                <text className={`circle status-${details.status}`}/>
-                                <text className="details-text">
+                                <div className={`circle status-${details.status}`} />
+                                <div className="details-text">
                                     {details.status.toUpperCase()} - {details.species}
-                                </text>
+                                </div>
                             </div>
                             <div>
-                                <text className="details-text">
+                                <div className="details-text">
                                     Gender: {details.gender}
-                                </text>
+                                </div>
                             </div>
                             <div>
-                                <text className="details-text">
+                                <div className="details-text">
                                     Origin: {details.origin.name}
-                                </text>
+                                </div>
                             </div>
-                        </div>  
-                    : null
+                        </div>
+                        : null
                 }
             </div>
         )
     }
+
+}
+
+Card.propTypes = {
+    id: PropTypes.number,
+    imageSource: PropTypes.string,
+    details: PropTypes.shape({
+        name: PropTypes.string,
+        status: PropTypes.string,
+        species: PropTypes.string,
+        gender: PropTypes.string,
+        origin: PropTypes.shape({
+            name: PropTypes.string,
+        })
+    }),
 
 }
 

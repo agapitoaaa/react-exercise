@@ -1,46 +1,54 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Loader from './component/Loader';
-import MainView from './Views/MainView';
+import MainView from './component/MainView';
+import ErrorView from './component/ErrorView';
 import './App.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ENDPOINT } from './utils/variables';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      post:{},
-      err: false,
-      loading: true,
-    }
+
+  state = {
+    post: {},
+    err: false,
+    loading: true,
   }
 
   componentDidMount() {
-    axios.get('https://rickandmortyapi.com/api/character/')
-    .then(res => {
+    axios.get(ENDPOINT+'/character/')
+      .then(res => {
         this.setState({
-            post: res.data,
-            err: false,
-            loading: false,
+          post: res.data,
+          err: false,
+          loading: true,
         })
-    })
-    .catch(err => {
+      })
+      .catch(() => {
         this.setState({
-            err: true,
-            loading: false,
+          err: true,
+          loading: false,
         })
-    })
+      })
   }
 
-  render(){ 
+  render() {
     const { post, err, loading } = this.state
-    return(
-      <div>
-        {
-          loading === true 
-          ? <Loader />
-          : <MainView post={post} err={err}/>
-        }
-      </div>
+    return (
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <div>
+              {
+                loading === true
+                  ? <Loader />
+                  : <MainView post={post} err={err} />
+              }
+            </div>
+          </Route>
+          <Route path="*" component={ErrorView} />
+        </Switch>
+      </Router>
     )
   }
 }
