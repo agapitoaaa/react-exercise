@@ -24,17 +24,17 @@ class Card extends React.Component {
                             <div className="name-text"> {details.name} </div>
                             <div className="status-container">
                                 <div className={`circle status-${details.status}`} />
-                                <div className="details-text">
+                                <div className="details-text status-species">
                                     {details.status.toUpperCase()} - {details.species}
                                 </div>
                             </div>
                             <div>
-                                <div className="details-text">
+                                <div className="details-text gender">
                                     Gender: {details.gender}
                                 </div>
                             </div>
                             <div>
-                                <div className="details-text">
+                                <div className="details-text origin">
                                     Origin: {details.origin.name}
                                 </div>
                             </div>
