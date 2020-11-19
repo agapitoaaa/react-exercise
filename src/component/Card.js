@@ -9,9 +9,7 @@ class Card extends React.Component {
     }
 
     showDetails = () => {
-        this.setState({
-            isClicked: !this.state.isClicked
-        })
+        this.setState({ isClicked: !this.state.isClicked })
     }
 
     render() {

@@ -13,11 +13,7 @@ const ListView = props => {
             <div className="main-container">
                 {
                     results ?
-                        Object.keys(results).map((item) =>
-                            (
-                                <Card key={item} details={results[item]} id={results.id} imageSource={results[item].image} />
-                            )
-                        )
+                        Object.keys(results).map((item) => <Card key={item} details={results[item]} id={results.id} imageSource={results[item].image} />)
                         : null
                 }
             </div>

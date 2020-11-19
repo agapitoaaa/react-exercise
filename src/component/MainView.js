@@ -8,9 +8,7 @@ class MainView extends Component {
     const { post, err } = this.props
     return(
       <div>
-        {
-          err === false ? <ListView post={post}/> : <ErrorView />
-        }
+        { err === false ? <ListView post={post}/> : <ErrorView /> }
       </div>
     )
   }
