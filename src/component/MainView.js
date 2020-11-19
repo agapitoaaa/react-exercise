@@ -4,11 +4,11 @@ import ErrorView from './ErrorView';
 import PropTypes from 'prop-types'
 
 class MainView extends Component {
-  render(){ 
+  render() {
     const { post, err } = this.props
-    return(
+    return (
       <div>
-        { err === false ? <ListView post={post}/> : <ErrorView /> }
+        { err === false ? <ListView post={post} /> : <ErrorView />}
       </div>
     )
   }

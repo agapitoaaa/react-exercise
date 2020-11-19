@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(ENDPOINT+'/character/')
+    axios.get(ENDPOINT + '/character/')
       .then(res => {
         this.setState({
           post: res.data,
@@ -40,9 +40,7 @@ class App extends Component {
           <Route path="/" exact>
             <div>
               {
-                loading === true
-                  ? <Loader />
-                  : <MainView post={post} err={err} />
+                loading === true ? <Loader /> : <MainView post={post} err={err} />
               }
             </div>
           </Route>
