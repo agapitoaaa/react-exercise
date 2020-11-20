@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import ListView from './ListView';
 import ErrorView from './ErrorView';
+import Loader from './Loader';
 import PropTypes from 'prop-types'
 
 class MainView extends Component {
   render() {
-    const { post, err } = this.props
+    const { post, err } = this.props;
+    if (err === undefined ) {
+      return <Loader />
+    }
     return (
       <div>
         { err === false ? <ListView post={post} /> : <ErrorView />}
