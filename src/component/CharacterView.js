@@ -16,7 +16,7 @@ class CharacterView extends Component {
     const { post, loading, err } = this.props.characters
     return (
       <div>
-        { loading === true ? <Loader/> : <MainView err={err} post={post}/>}
+        { loading === false ? <MainView err={err} post={post}/> : <Loader/>}
       </div>
     )
   }
